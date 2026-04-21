@@ -1,0 +1,110 @@
+body{
+     background: #021123;
+  margin: 0;           /* IMPORTANT */
+  overflow: hidden;
+}
+.hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+   margin:2rem;
+    height: 100vh;
+    color: azure;
+
+}
+.search {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+    height:2rem;
+
+
+}
+button {
+    padding: 5px 10px;
+    background: #0b3d91;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: grab;
+}
+input {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+}
+/* Wrapper */
+.result {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.result-1,
+.result-2 {
+  flex: 1;
+  min-width: 280px;
+
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+
+  padding: 20px;
+  border-radius: 18px;
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  transition: 0.3s;
+}
+
+
+.result-1:hover,
+.result-2:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+}
+
+.result span {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 12px;
+  border-radius: 10px;
+
+  font-size: 14px;
+  transition: 0.3s;
+}
+
+
+.result span:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+
+.result-1 {
+  border-left: 4px solid #00c6ff;
+}
+
+.result-2 {
+  border-left: 4px solid #ffd369;
+}
+@media (max-width: 600px) {
+  body{
+    overflow: auto;
+  }
+}
+#temp,
+#feelsTemp{
+    font-size: 18px;
+    font-weight: bold;
+    color: #fffb00;
+}
+#city{
+    font-size: 18px;
+    font-weight: bold;
+    color: greenyellow;
+}

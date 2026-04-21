@@ -1,0 +1,21 @@
+a{
+    text-decoration: none;
+    color: aqua;
+   
+}
+.footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    color: azure;
+    position: fixed;
+    left: 45%;
+    bottom: 0;
+}
+@media (max-width: 600px) {
+    .footer {
+      
+        left: 30%;
+    }
+}
