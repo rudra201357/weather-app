@@ -47,6 +47,7 @@ function Hero() {
     };
   useEffect(() => {
     getWeather();
+    // eslint-disable-next-line
   },[]);
     return (<div className="hero">
         <div className="search">
