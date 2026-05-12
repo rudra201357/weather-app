@@ -32,7 +32,7 @@ function Hero() {
             alert("Please enter a city name");
             return;
         }
-        fetch(`http://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`)
+        fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`)
             .then(res => res.json())
             .then(data => {
                 if (data.error) {
@@ -47,8 +47,8 @@ function Hero() {
     };
   useEffect(() => {
     getWeather();
-    // eslint-disable-next-line
-  },[]);
+    
+  }, []);
     return (<div className="hero">
         <div className="search">
             <input type="text" placeholder="Enter city name" onChange={(e) => setCity(e.target.value)}  onKeyDown={(e) => {
