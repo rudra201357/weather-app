@@ -1,5 +1,5 @@
 import "./hero.css";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 
 function Hero() {
     const [weather, setWeather] = useState(null);
@@ -27,12 +27,12 @@ function Hero() {
             default: return { color: "" };  
         }   
         };
-    const getWeather = () => {
-        if (!city) {
+    const getWeather = useCallback((cityName) => {
+        if (!cityName) {
             alert("Please enter a city name");
             return;
         }
-        fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}&aqi=yes`)
+        fetch(`https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cityName}&aqi=yes`)
             .then(res => res.json())
             .then(data => {
                 if (data.error) {
@@ -44,19 +44,19 @@ function Hero() {
                 console.log(data);
                 setWeather(data);
             });
-    };
+    }, [apiKey]);
   useEffect(() => {
-    getWeather();
+    getWeather("Kolkata");
     
-  }, []);
+  }, [getWeather]);
     return (<div className="hero">
         <div className="search">
             <input type="text" placeholder="Enter city name" onChange={(e) => setCity(e.target.value)}  onKeyDown={(e) => {
     if (e.key === "Enter") {
-      getWeather();  // call your API
+      getWeather(city);  // call your API
     }
   }} />
-            <button onClick={getWeather}>Get Weather</button>
+            <button onClick={() => getWeather(city)}>Get Weather</button>
         </div>
         <div className="weather-info">
             {weather && (
